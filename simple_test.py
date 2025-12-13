@@ -4,7 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import chromeDriverManager
 
-from page.AuthPage import AuthPage
+from page.ApiPage import AuthPage
 
 def first_test():
     browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
