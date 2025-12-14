@@ -2,11 +2,12 @@ import pytest
 import selenium
 from selenium import webdriver
 import allure
-from UiPage import SearchPage
+from final_proj.page.UiPage import SearchPage
+
 
 from time import sleep
 
-@pytest.fixture(scope=session)
+@pytest.fixture(scope="session")
 def driver():
     driver = webdriver.Chrome()
     driver.maximize_window()

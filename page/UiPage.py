@@ -22,13 +22,13 @@ class SearchPage:
     def enter_search_query(self, query):
         """Ввод текстового сообщения в поле поиска
            Args: query(str): запрос для поиска"""
-        search_input = self.wait.until(EC.visibility_of_element_located(By.CSS_SELECTOR, ".search-form_input"))
+        search_input = self.wait.until(EC.visibility_of_element_located(By.CSS_SELECTOR, ".search-form--opened"))
         search_input.send_keys(query)
 
     @allure.step("Нажатие кнопки поиска")
     def click_search_button(self):
         """Нажатие на кнопку поиска"""
-        search_button = self.wait.until(EC.visibility_of_element_located(By.CSS_SELECTOR, ".search-form_icon-search"))
+        search_button = self.wait.until(EC.visibility_of_element_located(By.CSS_SELECTOR, ".search-form__icon-search"))
         search_button.click()
 
     @allure.step("Получение названий книг")

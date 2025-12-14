@@ -1,18 +1,18 @@
 import allure
-from ApiPage import ApiPage
+from final_proj.page.ApiPage import ApiPage
 
- base_url = "https://www.chitai-gorod.ru/search?phrase"
- token = "Bearer%20eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VzZXItcmlnaHQiLCJzdWIiOjYxMTksImlhdCI6MTc2NTY5MDA5NywiZXhwIjoxNzY1NjkzNjk3LCJ0eXBlIjoyMCwianRpIjoiMDE5YjFiNTQtYzE0Zi03N2VlLWJjYWUtNTc0ZWRiYzc1MTBkIiwicm9sZXMiOjEwfQ.HZw6hhOhLAbREV9pg3eP2L8nQ_XfKdhF0EixH4vlog4"
+base_url: str = "https://www.chitai-gorod.ru/search"
+token = "Bearer%20eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VzZXItcmlnaHQiLCJzdWIiOjYxMTksImlhdCI6MTc2NTY5MDA5NywiZXhwIjoxNzY1NjkzNjk3LCJ0eXBlIjoyMCwianRpIjoiMDE5YjFiNTQtYzE0Zi03N2VlLWJjYWUtNTc0ZWRiYzc1MTBkIiwicm9sZXMiOjEwfQ.HZw6hhOhLAbREV9pg3eP2L8nQ_XfKdhF0EixH4vlog4"
 
 #Инициализация объекта API
- api_page = ApiPage(base_url, token)
+api_page = ApiPage(base_url, token)
 
- @allure.epic("API тестирование сайта Читай-город")
- @allure.feature("Поиск книг")
- @allure.title("Поиск книги по названию")
- @allure.description("Проверка что API возвращает книгу с ожидаемым названием")
+@allure.epic("API тестирование сайта Читай-город")
+@allure.feature("Поиск книг")
+@allure.title("Поиск книги по названию")
+@allure.description("Проверка что API возвращает книгу с ожидаемым названием")
 
- def test_api_book_by_title():
+def test_api_book_by_title():
      responce = api_page.search_product("Капитанская дочка")
      #Вывод текста ответа и статус кода для отладки
      print("Ответ:", responce.text)
