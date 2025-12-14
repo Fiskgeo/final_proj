@@ -21,7 +21,7 @@ from ApiPage import ApiPage
      assert responce.status_code == 200, f"Тест провален, статус-код {responce.status_code}."
 
      expected_title = "Капитанская дочка"
-     responce.json = responce.json()
+     responce_json = responce.json()
      book_titles = api_page.exstract_book_titles(responce_json)
      assert any (expected_title.lower() in title.lower() for title in book_titles)
      f"Тест провален: название книги '{expected_title}' не найдено в ответе"
@@ -36,7 +36,7 @@ def test_api_book_by_author():
     assert responce.status_code == 200, f"Тест провален, статус-код {responce.status_code}."
 
     expected_title = "Пушкин"
-    responce.json = responce.json()
+    responce_json = responce.json()
     book_titles = api_page.exstract_book_titles(responce_json)
     assert any(expected_title.lower() in title.lower() for title in book_titles)
     f"Тест провален: название книги '{expected_title}' не найдено в ответе"
@@ -50,7 +50,7 @@ def test_api_book_by_arabian():
     assert responce.status_code == 200, f"Тест провален, статус-код {responce.status_code}."
 
     expected_title = "بوشكين"
-    responce.json = responce.json()
+    responce_json = responce.json()
     book_titles = api_page.exstract_book_titles(responce_json)
     assert any(expected_title.lower() in title.lower() for title in book_titles)
     f"Тест провален: название книги '{expected_title}' не найдено в ответе"
@@ -64,7 +64,7 @@ def test_api_book_by_english():
     assert responce.status_code == 200, f"Тест провален, статус-код {responce.status_code}."
 
     expected_title = "Pushkin"
-    responce.json = responce.json()
+    responce_json = responce.json()
     book_titles = api_page.exstract_book_titles(responce_json)
     assert any(expected_title.lower() in title.lower() for title in book_titles)
     f"Тест провален: название книги '{expected_title}' не найдено в ответе"
@@ -78,7 +78,7 @@ def test_api_book_by_korean():
     assert responce.status_code == 200, f"Тест провален, статус-код {responce.status_code}."
 
     expected_title = "푸시킨"
-    responce.json = responce.json()
+    responce_json = responce.json()
     book_titles = api_page.exstract_book_titles(responce_json)
     assert any(expected_title.lower() in title.lower() for title in book_titles)
     f"Тест провален: название книги '{expected_title}' не найдено в ответе"
