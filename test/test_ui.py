@@ -1,12 +1,14 @@
 import pytest
+import selenium
 from selenium import webdriver
 import allure
-from UIPage import SearchPage
+from UiPage import SearchPage
+
 from time import sleep
 
 @pytest.fixture(scope=session)
 def driver():
-    driver = webdriver.chrome()
+    driver = webdriver.Chrome()
     driver.maximize_window()
     yield driver
     driver.quit()
@@ -27,3 +29,43 @@ def test_search_book_by_title():
     with allure.step("Получить заголовки книг"):
         product_titles = search_page.get_product_titles()
     assert any ("Капитанская дочка" in title for title in product_titles), "Название книги не найдено в списке книг"
+
+def test_search_book_by_author():
+    with allure.step("Ввести запрос на поиск книги по имени автора"):
+        search_page.enter_search_query("Пушкин")
+        sleep(5)
+    with allure.step("Нажать кнопку поиска"):
+        search_page.click_search_button()
+    with allure.step("Получить заголовки книг"):
+        product_titles = search_page.get_product_titles()
+    assert any ("Пушкин" in title for title in product_titles), "Название книги не найдено в списке книг"
+
+def test_search_book_by_arabian():
+    with allure.step("Ввести запрос на поиск книги по названию на арабском языке"):
+        search_page.enter_search_query("بوشكين")
+        sleep(5)
+    with allure.step("Нажать кнопку поиска"):
+        search_page.click_search_button()
+    with allure.step("Получить заголовки книг"):
+        product_titles = search_page.get_product_titles()
+    assert any ("بوشكين" in title for title in product_titles), "Название книги не найдено в списке книг"
+
+def test_search_book_by_english():
+    with allure.step("Ввести запрос на поиск книги по названию на арабском языке"):
+        search_page.enter_search_query("Pushkin")
+        sleep(5)
+    with allure.step("Нажать кнопку поиска"):
+        search_page.click_search_button()
+    with allure.step("Получить заголовки книг"):
+        product_titles = search_page.get_product_titles()
+    assert any ("Pushkin" in title for title in product_titles), "Название книги не найдено в списке книг"
+
+def test_search_book_by_korean():
+    with allure.step("Ввести запрос на поиск книги по названию на корейском языке"):
+        search_page.enter_search_query("푸시킨")
+        sleep(5)
+    with allure.step("Нажать кнопку поиска"):
+        search_page.click_search_button()
+    with allure.step("Получить заголовки книг"):
+        product_titles = search_page.get_product_titles()
+    assert any ("푸시킨" in title for title in product_titles), "Название книги не найдено в списке книг"

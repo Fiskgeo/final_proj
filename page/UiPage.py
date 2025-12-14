@@ -3,7 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import allure
 
-from final_proj.test.test_ui import search_page
+
 
 
 class SearchPage:
