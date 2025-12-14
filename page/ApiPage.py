@@ -1,11 +1,11 @@
-from selenium.webdriver.common.by import By
-from selenium.webdriver.remote.webdriver import WebDriver
+import requests
+import allure
 
-class AuthPage
+class ApiPage:
 
-   def __init__(self, driver: WebDriver) → None:
-       self.__url = "URL страницы авторизации"
-       self.__driver = driver
+   def __init__(self, base_url, token):
+       self.base_url = base_url
+       self._token = token
 
-   def go(self):
-       self.__driver.get(self.__url)
+   def _get_headers(self):
+       return {"Content-type": "application/json"}
