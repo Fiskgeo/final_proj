@@ -1,6 +1,6 @@
 import pytest
-import selenium
 from selenium import webdriver
+import selenium
 import allure
 from final_proj.page.UiPage import SearchPage
 
@@ -21,7 +21,7 @@ def search_page(driver):
     sleep(5)
     return page
 
-def test_search_book_by_title():
+def test_search_book_by_title(search_page):
     with allure.step("Ввести запрос на поиск книги по названию"):
         search_page.enter_search_query("Капитанская дочка")
         sleep(5)
@@ -31,7 +31,7 @@ def test_search_book_by_title():
         product_titles = search_page.get_product_titles()
     assert any ("Капитанская дочка" in title for title in product_titles), "Название книги не найдено в списке книг"
 
-def test_search_book_by_author():
+def test_search_book_by_author(search_page):
     with allure.step("Ввести запрос на поиск книги по имени автора"):
         search_page.enter_search_query("Пушкин")
         sleep(5)
@@ -41,7 +41,7 @@ def test_search_book_by_author():
         product_titles = search_page.get_product_titles()
     assert any ("Пушкин" in title for title in product_titles), "Название книги не найдено в списке книг"
 
-def test_search_book_by_arabian():
+def test_search_book_by_arabian(search_page):
     with allure.step("Ввести запрос на поиск книги по названию на арабском языке"):
         search_page.enter_search_query("بوشكين")
         sleep(5)
@@ -51,7 +51,7 @@ def test_search_book_by_arabian():
         product_titles = search_page.get_product_titles()
     assert any ("بوشكين" in title for title in product_titles), "Название книги не найдено в списке книг"
 
-def test_search_book_by_english():
+def test_search_book_by_english(search_page):
     with allure.step("Ввести запрос на поиск книги по названию на арабском языке"):
         search_page.enter_search_query("Pushkin")
         sleep(5)
@@ -61,7 +61,7 @@ def test_search_book_by_english():
         product_titles = search_page.get_product_titles()
     assert any ("Pushkin" in title for title in product_titles), "Название книги не найдено в списке книг"
 
-def test_search_book_by_korean():
+def test_search_book_by_korean(search_page):
     with allure.step("Ввести запрос на поиск книги по названию на корейском языке"):
         search_page.enter_search_query("푸시킨")
         sleep(5)

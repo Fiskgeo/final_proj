@@ -1,8 +1,8 @@
 import allure
 from final_proj.page.ApiPage import ApiPage
 
-base_url: str = "https://www.chitai-gorod.ru/search"
-token = "Bearer%20eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VzZXItcmlnaHQiLCJzdWIiOjYxMTksImlhdCI6MTc2NTY5MDA5NywiZXhwIjoxNzY1NjkzNjk3LCJ0eXBlIjoyMCwianRpIjoiMDE5YjFiNTQtYzE0Zi03N2VlLWJjYWUtNTc0ZWRiYzc1MTBkIiwicm9sZXMiOjEwfQ.HZw6hhOhLAbREV9pg3eP2L8nQ_XfKdhF0EixH4vlog4"
+base_url: str = "https://web-agr.chitai-gorod.ru/web/api/v2/search/product"
+token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NjU5OTEwNjcsImlhdCI6MTc2NTgyMzA2NywiaXNzIjoiL2FwaS92MS9hdXRoL2Fub255bW91cyIsInN1YiI6IjA3NmJkNDJmNGIwNTkwYTMwZDM3MTU5Y2RlZTdhODFiZDhlMjA3ZTNlMTRmMjJlODM2OTZkNmRiOWFkZDE2ZjQiLCJ0eXBlIjoxMH0.75aCtfwvHx8UvEfw8y1VGO3OxZbS5qjtp5qiu_QzvJE"
 
 #Инициализация объекта API
 api_page = ApiPage(base_url, token)

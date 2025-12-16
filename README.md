@@ -1,7 +1,7 @@
 # final_proj
 Final project in stady Skypro
 
-# pytest_ui_api_template
+
 
 ## Шаблон для автоматизации тестирования на python
 
@@ -9,18 +9,17 @@ Final project in stady Skypro
 - pytest
 - selenium
 - requests
-- _sqlalchemy_
 - allure
-- config
+
 
 ### Структура:
 - ./test - тесты
 - ./pages - описание страниц
 - ./api - хелперы для работы с API
-- ./db - хелперы для работы с БД
+
 
 ### Шаги
-1. Склонировать проект 'git clone https://github.com/имя_пользователя/
+1. Склонировать проект 'git clone https://github.com/
    pytest_ui_api_template.git'
 2. Установить зависимости
 3. Запустить тесты 'pytest'
